@@ -1,0 +1,217 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Gerard Consuelo} \\ \vspace{1pt}
+     \href{mailto:gcon.work@gmail.com}{\underline{gcon.work@gmail.com}} $|$ 
+    \href{https://linkedin.com/in/gerard-consuelo}{\underline{linkedin.com/in/gerard-consuelo}} $|$
+    \href{https://github.com/epicgdog}{\underline{github.com/epicgdog}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {San Jose State University}{San Jose, CA}
+      {Bachelor of Arts in Computer Science}{Aug. 2024 -- Present}
+       \resumeItemListStart
+        \resumeItem{GPA: 3.95/4.0 (President's Scholar Award)}
+        \resumeItem{Relevant Coursework: Intro to Data Structures, Linear Algebra, Discrete Mathematics}
+        \resumeItemListEnd
+      
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+     \resumeSubheading
+      {Software Engineer Intern @ SCE}{Sep 2024 -- Present}
+      {San Jose State University}{San Jose, CA}
+      \resumeItemListStart
+        \resumeItem{Designed, developed, and tested a self-checkout system for snacks serving a club of over 100 students.}
+        \resumeItem{Implemented a REST API to perform CRUD operations in Golang using Gin synced with a SQLite database, enabling seamless inventory management.}
+        \resumeItem{Secured endpoints with JWT tokens for user authentication, allowing for exclusive admin editing access. }
+         \resumeItem{Containerized with Docker, allowing other developers access across multiple networks.   }
+      \resumeItemListEnd
+      
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+    \resumeSubheading
+      {Academic Tutor}{Sep. 2023 -- April 2024}
+      {Folsom High School}{Folsom, CA}
+      \resumeItemListStart
+        \resumeItem{Coordinated weekly sessions for algebra and physics for several students ranging from middle to high school.}
+        \resumeItem{Elevated C-grade students to A-level performance through personalized teaching methods tailored to individual learning styles. }
+        \resumeItemListEnd
+    
+\resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Syll.ai @ SFHacks} | \href{https://github.com/DanielYRoh/syllabus-scraper}
+          {\underline{Frontend}
+          }
+          \href{https://github.com/darrensh3n/pdf-scraper-api}
+          {\underline{Backend}
+          }
+          
+          }{April 2025}
+          \resumeItemListStart
+        \resumeItem{Collaborated to develop a syllabus scraping tool that extracted key academic information and transformed it into digestible digital cards, reducing student time spent on manual review by 75\%.}
+        \resumeItem{Implemented a backend service with FastAPI that converted syllabus PDFs to text for processing by Google Gemini, enabling automated data scraping and extraction.}
+        \resumeItem{Engineered a high-performing, responsive web application levaraging Next.js, TailwindCSS, and Supabase to display and manage user-generated syllabus cards, incorporating robust user authentication for privacy and personalized content storage.}
+    \resumeItemListEnd
+    
+    \resumeProjectHeading
+{\textbf{Focus App} | \href{https://github.com/epicgdog/focus-app}
+          {\underline{Github}
+          }}{July 2023 -- August 2023}
+\resumeItemListStart
+\resumeItem{Developed a cross-platform desktop application with ElectronJS, React, and Node.js to implement the Pomodoro technique, boosting user productivity by 30\%\textbf{.}}
+\resumeItem{Implemented a customizable timer with dynamic break/work intervals, alongside an integrated todo list and media playlist, leveraging React Hooks and state management to streamline task and song management.}
+\resumeItem{Engineered a highly customizable user interface with dynamic CSS styling and a robust file I/O system for efficiently saving and retrieving user preferences. }
+\resumeItemListEnd
+
+    \resumeProjectHeading
+          {\textbf{Blocky Heroes} | \href{https://www.roblox.com/games/12103017573/Game-1-Blocky-Heroes-V0-0-1}
+          {\underline{Game Link}}
+          }{Jan 2023 -- Feb 2023}
+          \resumeItemListStart
+          \resumeItem{Built a First-Person Shooter (FPS) game using the Roblox Game Engine and API, programmed in LuaU.}
+          \resumeItem{Integrated a Model-View-Controller (MVC) architecture and various OOP paradigms(polymorphism, encapsulation, inheritance), which streamlined development, enhanced modularity, and facilitated testing within a rapid 2-week timeframe.}
+          \resumeItem{Architected an advanced NPC system featuring a finite state machine and A* pathfinding, capable of generating 100+ NPCs concurrently with minimal latency.}
+\resumeSubHeadingListEnd
+
+    \section{Technical Skills}
+     \begin{itemize}[leftmargin=0.15in, label={}]
+        \small{\item{
+         \textbf{Languages}{: Java, JavaScript, LuaU, HTML/CSS, Python, Golang} \\
+         \textbf{Frameworks}{: NextJS, ElectronJS, React, Express, Node.js, FastAPI, TailwindCSS, RobloxAPI, SciKit, Pandas} \\
+         \textbf{Developer Tools}{:Git, Github, Docker, VS Code, WSL} \\
+        }}
+     \end{itemize}
+\end{document}
