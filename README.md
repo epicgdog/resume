@@ -1,5 +1,4 @@
-### My Resume
----
+# My Resume
 
 Hello guys, I am Gerard and this is a repository for my resume.
 
@@ -26,3 +25,11 @@ latexmk -pvc -pdf -interaction=nonstopmode resume.tex
 
 Now, you should have a hot-reloading LaTex editor that doesn't require wifi (unless you need to import stuff from LaTex)
 ![alt text](native_latex_editor.gif)
+
+
+---
+
+
+Possible Improvements:
+- create my own perl script that will only parse the **changed* parts of my resume, so there would be an editor to the side, showing what the pdf will look like.
+- then, when everything is looking good, we can click an export button that will allow us to save as a PDF and stuff.
