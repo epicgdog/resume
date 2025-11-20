@@ -19,6 +19,10 @@
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \input{glyphtounicode}
+\usepackage{ragged2e} % for \justifying
+\usepackage{microtype} % better justification
+
+
 
 
 %----------FONT OPTIONS----------
@@ -124,10 +128,10 @@
   \resumeSubHeadingListStart
     \resumeSubheading
       {San Jose State University}{San Jose, CA}
-      {Bachelor of Arts in Computer Science}{Aug. 2024 -- Present}
+      {Bachelor of Science in Computer Science}{Graduation: 2027}
        \resumeItemListStart
-        \resumeItem{GPA: 3.95/4.0 (President's Scholar Award)}
-        \resumeItem{Relevant Coursework: Intro to Data Structures, Linear Algebra, Discrete Mathematics}
+        \resumeItem{GPA: 4.0 (President's Scholar Award).}
+        \resumeItem{Coursework: Data Structures and Algorithms, Discrete Math, Linear Algebra.}
         \resumeItemListEnd
       
   \resumeSubHeadingListEnd
@@ -136,25 +140,39 @@
 %-----------EXPERIENCE-----------
 \section{Experience}
   \resumeSubHeadingListStart
+
+  % \resumeItemListStart
+  %   \resumeItem{Deployed a print‑job tracking system for a 2,000+ member club, handling 10+ pages printed per day reliably.}
+  %   \resumeItem{Implemented REST APIS to send files to printer using Line Printer Daemon protocol, Python, and FastAPI.}
+  %   \resumeItem{Monitored print‑job status via lpstat; persisted job IDs and states in SQLite for auditability and reporting.}
+  %   \resumeItem{Built a status dashboard to relay print‑job info using React.js and TailwindCSS, served efficiently with Nginx.}
+  %   \resumeItem{Created a pytest suite for FastAPI endpoints, LPD submission, and lpstat/SNMP parsing with robust mocks.}
+  %   \resumeItem{Improved a Discord bot to greet new users with custom images, leveraging Discord.js and Node for speed.}
+  % \resumeItemListEnd
   
-    \resumeSubheading
-      {Software Engineer Intern @ SCE}{Sep 2024 -- Present}
-      {San Jose State University}{San Jose, CA}
-      \resumeItemListStart
-        \resumeItem{Engineered a secure Golang REST API with JWT authentication for a self-checkout system, managing inventory for a 100+ member club.}
-        \resumeItem{Developed an end-to-end print job monitoring system to provide real-time status tracking, resolving a critical visibility gap in the legacy "fire-and-forget" print workflow.}
-        \resumeItem{Architected a stateful tracking engine using an SQLite database and Python's set operations to efficiently store job history and reconcile statuses from polled lpstat outputs}
-        \resumeItem{Ensured system reliability by building a comprehensive Python test suite with mocked subprocesses to enable isolated validation of the job reconciliation logic.}
-      \resumeItemListEnd
-      
-    \resumeSubheading
-      {Summer Camp Lead}{July 2025}
-      {theCoderSchool}{Folsom, CA}
-      \resumeItemListStart
-        \resumeItem{Directed a week-long Roblox development summer camp, instructing 15+ students aged 7-12 in the fundamentals of game design and Luau scripting.}
-        \resumeItem{Designed and developed a project-based curriculum, translating complex coding concepts into age-appropriate, hands-on activities.}
-        \resumeItem{Facilitated students creating their own custom games, guiding projects from initial concept to playable prototypes like PVP, obby, and simulations.}
-        \resumeItemListEnd
+  \resumeSubheading
+  {Software Engineer Intern}{May 2025 -- Aug. 2025}
+  {SJSU College of Engineering}{San Jose, CA}
+
+  \resumeItemListStart
+    \resumeItem{Deployed a print‑job tracking system for a 2,000+ member club, handling 10+ pages printed per day reliably.}
+    \resumeItem{Implemented REST APIs to send files to printer using Line Printer Daemon protocol, Python, and FastAPI.}
+    \resumeItem{Monitored print‑job status via lpstat; persisted job IDs and states in SQLite for auditability and reporting.}
+    \resumeItem{Built a status dashboard to relay print‑job info using React.js and Tailwind CSS, served efficiently with Nginx.}
+    \resumeItem{Created a pytest suite for FastAPI endpoints, LPD submission, and lpstat/SNMP parsing with robust mocks.}
+    \resumeItem{Improved a Discord bot to greet new users with custom images, leveraging Discord.js and Node for speed.}
+  \resumeItemListEnd
+  
+  
+    
+  \resumeSubheading
+  {Summer Camp Lead}{Jul. 2025}
+  {theCoderSchool}{Folsom, CA}
+  \resumeItemListStart
+    \resumeItem{Directed a Roblox summer camp for 15+ students; 95\% shipped playable prototypes within seven days.}
+    \resumeItem{Developed 5+ mini-games in LuaU and 7 lessons on scripting, events, and OOP fundamentals.}
+    \resumeItem{Ran comprehension quizzes; median scores increased from 56\% to 84\% by the end.}  
+  \resumeItemListEnd
         
 % -----------Multiple Positions Heading-----------
 %    \resumeSubSubheading
@@ -174,39 +192,26 @@
     \resumeSubHeadingListStart
 
     \resumeProjectHeading
-        {\textbf{HotSpot @ HackDavis25} | \href{https://github.com/Javacadu/HotSpotHackDavis25}
-        {\underline{Github}}
-        }{April 2025}
+        {\textbf{\href{https://github.com/Javacadu/HotSpotHackDavis25}{HotSpot}} $|$ \emph{Next.js, React, Tailwind CSS, Mapbox GL JS, Google Gemini}}{}
         \resumeItemListStart
-          \resumeItem{Developed a web service to consolidate wildfire support information for vulnerable communities, featuring a Gemini API-powered assistant for curated local resources.}
-          \resumeItem{Engineered an interactive map with Next.js and Mapbox GL JS to visualize Wildfire Hazard Potential (WHP) against census demographic data, clarifying risk for at-risk groups.}
-          \resumeItem{Built and deployed a full-stack MVP within 24 hours using React, Tailwind CSS, and Node.js, demonstrating a rapid and effective development cycle.}
+          \resumeItem{Consolidated California wildfire status and aid resources for affected demographics, updating every 2 minutes.}
+          \resumeItem{Created a geospatial map application using Next.js, React, Tailwind CSS, Mapbox GL JS with live data from NASA.}
+          \resumeItem{Integrated Google Gemini with Census data to curate the necessary resources based on the demographics affected.}
       \resumeItemListEnd
 
-
       \resumeProjectHeading
-          {\textbf{Syll.ai @ SFHacks} | \href{https://github.com/DanielYRoh/syllabus-scraper}
-          {\underline{Frontend}
-          }
-          \href{https://github.com/darrensh3n/pdf-scraper-api}
-          {\underline{Backend}
-          }
-          
-          }{April 2025}
+        {\textbf{\href{https://github.com/DanielYRoh/syllabus-scraper}{Syll.Ai}} $|$ \emph{Next.js, React, Tailwind CSS, Vercel, Supabase, FastAPI, ngrok, Google Gemini}}{}
           \resumeItemListStart
-        \resumeItem{Developed a syllabus scraping tool that automatically converted academic data into digital cards, cutting student review time by 75\%.}
-        \resumeItem{Built a FastAPI backend to convert syllabus PDFs to text for automated data extraction via Google Gemini.}
-        \resumeItem{Engineered a responsive Next.js web app with Supabase and TailwindCSS to manage syllabus cards, featuring secure user authentication for personalized storage.}
+        \resumeItem{Generated structured study cards from syllabi, cutting student preparation time by 75\% across pilot users.}
+        \resumeItem{Implemented a full-stack application, powered by Next.js, Tailwind CSS, Vercel, Supabase, and ngrok.}
+        \resumeItem{Leveraged a FastAPI backend integrated with Google Gemini to extract and curate key information.}
     \resumeItemListEnd
 
     \resumeProjectHeading
-          {\textbf{Blocky Heroes} | \href{https://www.roblox.com/games/12103017573/Game-1-Blocky-Heroes-V0-0-1}
-          {\underline{Game Link}}
-          }{Jan 2023 -- Feb 2023}
+        {\textbf{\href{https://www.roblox.com/games/12103017573/Game-1-Blocky-Heroes-V0-0-1}{Blocky Heroes}} $|$ \emph{RobloxAPI, LuaU}}{}
           \resumeItemListStart
-          \resumeItem{Built a First-Person Shooter (FPS) game using the Roblox Game Engine and API, programmed in LuaU.}
-          \resumeItem{Implemented an MVC architecture and OOP principles to enhance modularity and simplify testing, enabling project completion in a rapid 2-week timeframe}
-          \resumeItem{Architected an advanced NPC system featuring a finite state machine and A* pathfinding, capable of generating 100+ NPCs concurrently with minimal latency.}
+          \resumeItem{Built a Roblox FPS Game in LuaU, employing MVC principles and OOP design patterns to enhance scalability.}
+          \resumeItem{Architected an NPC system with a finite state machine and pathfinding, running 100+ NPCs with 10-15ms.}
     \resumeItemListEnd
     
 \resumeSubHeadingListEnd
@@ -214,9 +219,9 @@
     \section{Technical Skills}
      \begin{itemize}[leftmargin=0.15in, label={}]
         \small{\item{
-         \textbf{Languages}{: Python , Golang , JavaScript , Next.js , FastAPI , React } \\
-         \textbf{Frameworks}{: NextJS, ElectronJS, React, Express, Node.js, FastAPI, TailwindCSS, RobloxAPI, SciKit, Pandas} \\
-         \textbf{Developer Tools}{:Git, Github, Docker, VS Code, WSL} \\
+         \textbf{Languages}{: LuaU, Python, Java, HTML/CSS, JavaScript, SQL } \\
+         \textbf{Frameworks}{: Node.js, Next.js, React, Express, FastAPI, Tailwind CSS, RobloxAPI} \\
+         \textbf{Developer Tools}{: Git/Github, Docker, VS Code, WSL, Vercel} \\
         }}
      \end{itemize}
 \end{document}
