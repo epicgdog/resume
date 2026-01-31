@@ -5,6 +5,6 @@
 *.log
 *.out
 *.ps
-
+*.bak*
 
 .gitattributes
