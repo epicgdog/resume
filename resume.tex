@@ -19,10 +19,6 @@
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \input{glyphtounicode}
-\usepackage{ragged2e} % for \justifying
-\usepackage{microtype} % better justification
-
-
 
 
 %----------FONT OPTIONS----------
@@ -44,9 +40,9 @@
 \renewcommand{\footrulewidth}{0pt}
 
 % Adjust margins
-\addtolength{\oddsidemargin}{-0.75in}
-\addtolength{\evensidemargin}{-0.75in}
-\addtolength{\textwidth}{1.5in}
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
 \addtolength{\topmargin}{-.5in}
 \addtolength{\textheight}{1.0in}
 
@@ -116,78 +112,77 @@
 % \end{tabular*}
 
 \begin{center}
-    \textbf{\Huge \scshape Gerard Consuelo} \\ \vspace{1pt}
-    {San Jose, CA, 95112} $|$ 
-    {(279)-220-0586} $|$ 
-    \href{mailto:gcon.work@gmail.com}{\underline{gcon.work@gmail.com}} $|$ 
-    \href{https://linkedin.com/in/gerard-consuelo}{\underline{linkedin.com/in/gerard-consuelo}} $|$
-    \href{https://github.com/epicgdog}{\underline{github.com/epicgdog}}
+	\textbf{\Huge \scshape Gerard Consuelo} \\ \vspace{1pt}
+	{San Jose, CA, 95112} $|$
+	{(279)-220-0586} $|$
+	\href{mailto:gcon.work@gmail.com}{\underline{gcon.work@gmail.com}} $|$
+	\href{https://linkedin.com/in/gerard-consuelo}{\underline{linkedin.com/in/gerard-consuelo}} $|$
+	\href{https://github.com/epicgdog}{\underline{github.com/epicgdog}}
 \end{center}
 
 %-----------EDUCATION-----------
 \section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {San Jose State University}{San Jose, CA}
-      {Bachelor of Science in Computer Science}{Graduation: May 2027}
-       \resumeItemListStart
-        \resumeItem{GPA: 3.93 (President's Scholar Award).}
-        \resumeItem{Coursework: Data Structures \& Algorithms, Operating Systems, Network Security.}
-        \resumeItemListEnd
-      
-  \resumeSubHeadingListEnd
+\resumeSubHeadingListStart
+\resumeSubheading
+{San Jose State University}{San Jose, CA}
+{Bachelor of Science in Computer Science}{Graduation: Dec 2027}
+\resumeItemListStart
+\resumeItem{GPA: 3.93, 2x President's Scholar Award.}
+\resumeItem{Coursework: Data Structures \& Algorithms, Operating Systems, Network Security.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
 
 
 %-----------EXPERIENCE-----------
 \section{Experience}
-  \resumeSubHeadingListStart
+\resumeSubHeadingListStart
 
-  % \resumeSubheading
-  % {SJSU College of Engineering}{Jan. 2026 -- Present}
-  % {Undergraduate Research Assistant}{San Jose, CA}
-  % \resumeItemListStart
-  %  \resumeItem{Researching ML implementation to automated workflows for WDL.}
-  % \resumeItemListEnd
-  
-  % \resumeSubheading
-  % {Peer Mentor}{Aug. 2025 -- Present}
-  % {Peer Connections}{San Jose, CA}
-  % \resumeItemListStart
-  %   \resumeItem{Collaborated with university faculty to co-facilitate Calculus I workshops, providing academic mentorship to 30+ students.}
-  %   \resumeItem{Led a 5-week workshop academic success program, achieving a 95\%+ positive rating for session effectiveness.}
-  %   \resumeItem{Supplemented instruction with personalized support outside of class with 1-on-1 sessions and drop-in appointments.}
-  % \resumeItemListEnd
+% \resumeSubheading
+% {SJSU College of Engineering}{Jan. 2026 -- Present}
+% {Undergraduate Research Assistant}{San Jose, CA}
+% \resumeItemListStart
+%  \resumeItem{Researching ML implementation to automated workflows for WDL.}
+% \resumeItemListEnd
 
-  
-  \resumeSubheading
-  {SJSU College of Engineering}{May 2025 -- Aug. 2025}
-  {Software Engineer Intern}{San Jose, CA}
-  \resumeItemListStart
-    \resumeItem{Engineered and deployed a print tracking system serving 2,000+ members, processing 10+ daily jobs with 99.9\% uptime.}
-    \resumeItem{Developed RESTful APIs with FastAPI to send/update print jobs and maintained persistent data logs for system auditing.}
-    \resumeItem{Built a real-time status dashboard using React and Tailwind CSS, optimizing performance and delivery through Nginx.}
-    \resumeItem{Automated system reliability with a comprehensive test suite, ensuring stable performance of API and data processing.}
-    \resumeItemListEnd
-    
-  \resumeSubheading
-  {Lead Instructor}{Jul. 2025}
-  {theCoderSchool}{Folsom, CA}
-  \resumeItemListStart
-    \resumeItem{Led a youth Roblox development camp for 15+ students, managing curriculum design and technical instruction.}
-    \resumeItem{Developed an introductory coding curriculum in LuaU with 5+ interactive games to teach fundamental concepts.}
-    \resumeItem{Improved student comprehension from 56\% to 84\% through project-based learning and hands-on mentorship.}  
-  \resumeItemListEnd
-  
+\resumeSubheading
+{Software \& Computer Engineering Society (SCE)}{Aug. 2024 -- Present}
+{Development Team Member}{San Jose, CA}
+\resumeItemListStart
+\resumeItem{Developed an inventory management system in Go supporting 300+ members with snack availability updates.}
+\resumeItem{Implemented tooling for a Discord bot to auto-generate welcome images for a 3K-member server.}
+\resumeItem{Maintained 99\% uptime for LED Leetcode leaderboard, increasing engagement with over 400+ problems solved.}
+\resumeItemListEnd
 
-  \resumeSubheading
-  {Game Developer}{Aug. 2020 -- Aug. 2023}
-  {Roblox}{Remote}
-  \resumeItemListStart
-    \resumeItem{Engineered a FPS framework in LuaU adhering to MVC \& OOP principles, reducing code redundancy by 30\%.}
-    \resumeItem{Architected a high-concurrency NPC system using A* pathfinding \& FSMs, sustaining 300+ agents under 10ms.}
-    \resumeItem{Contributed 128 posts \& 14 accepted solutions on the Roblox DevForum, earning 173 likes over a 3-year active membership.}
-  \resumeItemListEnd
-        
+
+\resumeSubheading
+{SJSU College of Engineering}{May 2025 -- Aug. 2025}
+{Software Engineer Intern}{San Jose, CA}
+\resumeItemListStart
+\resumeItem{Deployed a print tracker for 2K+ members, adding job lifecycle states to replace unmonitored print jobs.}
+\resumeItem{Built FastAPI REST APIs with SQLite logs, ensuring 99\% uptime for 500+ jobs via Pytest \& GitHub Actions.}
+\resumeItem{Optimized memory by 65\% via Docker consolidation, deploying to a bare-metal Linux server via OpenVPN.}
+\resumeItemListEnd
+
+\resumeSubheading
+{Lead Instructor}{Jul. 2025}
+{theCoderSchool}{Folsom, CA}
+\resumeItemListStart
+\resumeItem{Created a 5-game LuaU curriculum now adopted as the standard training material for future camps.}
+\resumeItem{Led a 15-student camp with a TA, providing daily progress updates and coding recommendations to parents.}
+\resumeItem{Raised daily quiz scores from 56\% to 84\% via relatable analogies and hosting a final game gallery walk.}
+\resumeItemListEnd
+
+
+\resumeSubheading
+{Game Developer}{Aug. 2020 -- Aug. 2023}
+{Roblox}{Remote}
+\resumeItemListStart
+\resumeItem{Engineered an open-source OOP/MVC LuaU framework via ModuleScripts, reducing code redundancy by 30\%.}
+\resumeItem{Architected an A* NPC system using object pooling \& shared paths, scaling from 100 to 300+ agents under 10ms.}
+\resumeItem{Authored 128 DevForum posts \& 14 accepted solutions on linear algebra/matrices, earning 173 likes.}
+\resumeItemListEnd
+
 % -----------Multiple Positions Heading-----------
 %    \resumeSubSubheading
 %     {Software Engineer I}{Oct 2014 - Sep 2016}
@@ -197,86 +192,85 @@
 %     \resumeItemListEnd
 %    \resumeSubHeadingListEnd
 %-------------------------------------------
-    
+
 \resumeSubHeadingListEnd
 
 
 %-----------PROJECTS-----------
 \section{Projects}
-    \resumeSubHeadingListStart
-    
-    \resumeProjectHeading
-        {\textbf{\href{https://github.com/adover06/liturgy.display}{Liturgy.Display}}  $|$ \emph{Python, FastAPI, WebSockets, TailwindCSS, VOSK Speech Recognition}}{}
-          \resumeItemListStart
-            \resumeItem{Live scripture display system using speech recognition to automate operation of slides with less than 50ms latency.}
-            \resumeItem{Improved transcription accuracy by 50\% by finetuning the AI model to recognize specialized liturgical vocabulary.}
-            \resumeItem{Optimized system performance to achieve near-instantaneous updates (100ms), ensuring syncing of displays with live speech.}
-            \resumeItem{Developed a web interface using Python and WebSockets connected to a frontend Vite app with TailwindCSS for design.}
-    \resumeItemListEnd
-    \resumeProjectHeading
-    {\textbf{\href{https://github.com/epicgdog/agentclipz}{AgentClipz}}  $|$ \emph{Python, FFmpeg, Streamlink, Reka AI, Modulate API}}{}
-      \resumeItemListStart
-        \resumeItem{Won Best Use of Modulate API at an AWS hackathon for building an autonomous Twitch highlight agent.}
-        \resumeItem{Engineered a real-time capture pipeline using Streamlink and FFmpeg to maintain a rolling HLS stream buffer.}
-        \resumeItem{Integrated Modulate API for voice emotion analysis and weighted scoring to extract peak 30s highlights.}
-        \resumeItem{Automated the full content lifecycle from live stream capture to AI-captioned Instagram Reel publication.}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+{\textbf{\href{https://github.com/epicgdog/agentclipz}{AgentClipz}}  $|$ \emph{Python, FFmpeg, Streamlink, Reka AI, Modulate API}}{}
+\resumeItemListStart
+\resumeItem{Won Best Use of Modulate API at an AWS hackathon, detecting voice emotion \& chat rate to trigger highlights.}
+\resumeItem{Automated the clip-to-publish pipeline via Instagram Graph API, posting fully edited Reels in under 2 minutes.}
+\resumeItem{Eliminated hours of manual VOD review by automating the highlight \& publishing workflow for streamers.}
+\resumeItem{Processed a 3-hour HLS livestream with Streamlink, leveraging Reka AI \& FFmpeg to generate \& burn subtitles.}
+\resumeItemListEnd
+\resumeProjectHeading
+{\textbf{\href{https://github.com/adover06/liturgy.display}{Liturgy.Display}}  $|$ \emph{Python, FastAPI, WebSockets, TailwindCSS, VOSK Speech Recognition}}{}
+\resumeItemListStart
+\resumeItem{Built a Dockerized live scripture display for Sunday Masses, helping 50--70 attendees follow without books.}
+\resumeItem{Boosted accuracy by 50\% by recompiling a Vosk language model with CMU phonetics for liturgical vocabulary.}
+\resumeItem{Engineered sub-100ms latency by streaming browser audio via WebSockets to a FastAPI server for UI events.}
+\resumeItem{Automated HTML slide transitions via real-time speech word counting, eliminating manual liturgy operators.}
 \resumeItemListEnd
 
-    \resumeProjectHeading
-        {\textbf{\href{https://github.com/brandontautuan/SacHacksVII-BAMG-}{EVIncible}}  $|$ \emph{Next.JS, Groq, LangGraph.js}}{}
-          \resumeItemListStart
-            \resumeItem{Built in collaboration with DataPigeon (selected from 4,000+ companies for an AI Summit) to solve EV charger monitoring.}
-            \resumeItem{Engineered an reasoning agent with full tooling with LangGraph and Groq, displayed using Next.JS.}
-            \resumeItem{Simulated real-world decay of chargers with a Monte-Carlo simulation, enabling rapid integration with the real world.}
-    \resumeItemListEnd
-    % \resumeProjectHeading
-    %     {\textbf{\href{https://github.com/epicgdog/schedule-ai}{Schedule-AI}}  $|$ \emph{Python, FastAPI, SQLAlchemy, BeautifulSoup4, Turso, Next.JS}}{}
-    %       \resumeItemListStart
-    %         \resumeItem{Dynamic academic roadmap engine for SJSU majors, visualizing complex prerequisites and real-time degree progress.}
-    %         \resumeItem{Engineered an ETL pipeline with BeautifulSoup4 + SQLite to scrape and normalize 5K+ courses into a structured schema.}
-    %         \resumeItem{Implemented recursive CTEs in the SQLite database for efficient tree traversal, rendering complex trees in 20ms.}
-    % \resumeItemListEnd
+% \resumeProjectHeading
+% {\textbf{\href{https://github.com/epicgdog/sow-agent}sow-agent}  $|$ \emph{Python, AWS Bedrock, Datadog MCP, GitHub Actions, FastAPI}}{}
+% \resumeItemListStart
+% \resumeItem{Built a modular multi-agent platform on AWS Bedrock that automated orchestration \& cut triage time by 65\%.}
+% \resumeItem{Implemented a self-healing QA loop with Datadog MCP telemetry to auto-retry failures \& improve stability.}
+% \resumeItem{Integrated GitHub Actions CI/CD with gated tests \& deploy checks, enabling traceable low-risk releases.}
+% \resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{\href{https://github.com/epicgdog/schedule-ai}Schedule-AI} \ $|$ \emph{Python, FastAPI, React, Turso SQLite, Playwright, Groq}}{}
+\resumeItemListStart
+\resumeItem{Engineered an automated degree planner, scraping 5.3K courses \& 200 majors via Playwright \& Groq LLMs.}
+\resumeItem{Built a FastAPI \& Turso SQLite backend to generate dynamic 4-year degree roadmaps using junction tables.}
+\resumeItem{Parsed user transcripts with Pandas to track degree progress, rendering React roadmaps via bioinformatics tools.}
+\resumeItemListEnd
+
+% \resumeProjectHeading
+%     {\textbf{\href{https://github.com/Javacadu/HotSpotHackDavis25}{HotSpot}} $|$ \emph{Next.js, React, Tailwind CSS, Mapbox GL JS, Google Gemini}}{}
+%     \resumeItemListStart
+%       \resumeItem{Real-time disaster relief platform to monitor California wildfires, automating resource updates every 2 minutes.}
+%       \resumeItem{Built a live geospatial application using Next.js to visualize wildfire activity, providing critical location-based insights.}
+%       \resumeItem{Automated curation of significant resources for demographics affected using Google Gemini \& current Census Data.}
+%   \resumeItemListEnd
+
+%   \resumeProjectHeading
+%     {\textbf{\href{https://github.com/DanielYRoh/syllabus-scraper}{Syll.Ai}} $|$ \emph{Next.js, React, Tailwind CSS, Vercel, Supabase, FastAPI, ngrok, Google Gemini}}{}
+%       \resumeItemListStart
+%     \resumeItem{Platform transforming complex academic syllabi to simplified guides, improving document readability for students.}
+%     \resumeItem{Developed a full-stack application using Next.js \& Supabase to provide a seamless user interface with cloud storage.}
+%     \resumeItem{Leveraged an AI-powered backend using FastAPI \& Google Gemini to extract key information \& generate new syllabi.}
+% \resumeItemListEnd
 
 
 
-    % \resumeProjectHeading
-    %     {\textbf{\href{https://github.com/Javacadu/HotSpotHackDavis25}{HotSpot}} $|$ \emph{Next.js, React, Tailwind CSS, Mapbox GL JS, Google Gemini}}{}
-    %     \resumeItemListStart
-    %       \resumeItem{Real-time disaster relief platform to monitor California wildfires, automating resource updates every 2 minutes.}
-    %       \resumeItem{Built a live geospatial application using Next.js to visualize wildfire activity, providing critical location-based insights.}
-    %       \resumeItem{Automated curation of significant resources for demographics affected using Google Gemini and current Census Data.}
-    %   \resumeItemListEnd
-
-    %   \resumeProjectHeading
-    %     {\textbf{\href{https://github.com/DanielYRoh/syllabus-scraper}{Syll.Ai}} $|$ \emph{Next.js, React, Tailwind CSS, Vercel, Supabase, FastAPI, ngrok, Google Gemini}}{}
-    %       \resumeItemListStart
-    %     \resumeItem{Platform transforming complex academic syllabi to simplified guides, improving document readability for students.}
-    %     \resumeItem{Developed a full-stack application using Next.js and Supabase to provide a seamless user interface with cloud storage.}
-    %     \resumeItem{Leveraged an AI-powered backend using FastAPI and Google Gemini to extract key information and generate new syllabi.}
-    % \resumeItemListEnd
+% \resumeProjectHeading
+%     {\textbf{Schedule Builder AI} $|$ \emph{Next.js, Python (FastAPI), PostgreSQL, Pinecone, Celery, LangChain}}{}
+%       \resumeItemListStart
+%         \resumeItem{Hybrid Scheduling Engine combining an scheduling algorithm with a RAG-based AI agent for personalized class schedules.}
+%         \resumeItem{Architected an async data pipeline using Celery, hydrating a PostgreSQL database with real-time course data.}
+%         \resumeItem{Implemented a Vector Search system to index "Rate My Professor" reviews, utilizing a custom MCP server.}
+%         \resumeItem{Designed an Entity Resolution layer to normalize inconsistent data sources, ensuring 100\% data integrity.}
+% \resumeItemListEnd
 
 
 
-    % \resumeProjectHeading
-    %     {\textbf{Schedule Builder AI} $|$ \emph{Next.js, Python (FastAPI), PostgreSQL, Pinecone, Celery, LangChain}}{}
-    %       \resumeItemListStart
-    %         \resumeItem{Hybrid Scheduling Engine combining an scheduling algorithm with a RAG-based AI agent for personalized class schedules.}
-    %         \resumeItem{Architected an async data pipeline using Celery, hydrating a PostgreSQL database with real-time course data.}
-    %         \resumeItem{Implemented a Vector Search system to index "Rate My Professor" reviews, utilizing a custom MCP server.}
-    %         \resumeItem{Designed an Entity Resolution layer to normalize inconsistent data sources, ensuring 100\% data integrity.}
-    % \resumeItemListEnd
-    
 
-
-    
 \resumeSubHeadingListEnd
 
-    \section{Technical Skills}
-     \begin{itemize}[leftmargin=0.15in, label={}]
-        \small{\item{
-         \textbf{Languages}{: LuaU, Python, Java, C, HTML/CSS, JavaScript, SQL} \\
-         \textbf{Frameworks}{: Node.js, Next.js, React, Express, FastAPI, LangChain, Tailwind CSS, RobloxAPI} \\
-         \textbf{Developer Tools}{: Git/Github, Docker, Groq, VS Code, Linux, Vercel, AWS, Kiro, DataDog} \\
-        }}
-     \end{itemize}
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+	\small{\item{
+	      \textbf{Languages}{: LuaU, Python, Go, Java, C, HTML/CSS, JavaScript, SQL} \\
+	      \textbf{Frameworks}{: Node.js, Next.js, React, Express, FastAPI, LangChain, Tailwind CSS, RobloxAPI} \\
+	      \textbf{Developer Tools}{: Git/Github, Docker, Groq, VS Code, Linux, Vercel, AWS, Kiro, DataDog} \\
+	      }}
+\end{itemize}
 \end{document}
