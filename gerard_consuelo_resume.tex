@@ -135,9 +135,9 @@
 \section{Technical Skills}
 \begin{itemize}[leftmargin=0.15in, label={}]
 	\small{\item{
-	      \textbf{Languages}{: Python, Perl, Go, C, Java, SQL, LuaU, JavaScript, HTML/CSS} \\
+	      \textbf{Languages}{: Python, Go, C, Java, SQL, LuaU, JavaScript, HTML/CSS} \\
 	      \textbf{Frameworks/Libraries}{: FastAPI, LangChain, RAG, OpenAI API, OpenCV, SQLAlchemy, React/Next.js} \\
-	      \textbf{Developer Tools}{: Linux/Unix, Git/Github, Claude Code, MCP, Docker, AWS Bedrock, Groq, DataDog} \\
+	      \textbf{Developer Tools}{: Linux/Unix, Git/Github, Claude Code, MCP, Docker, Groq, AWS Bedrock, DataDog} \\
 	      }}
 \end{itemize}
 
@@ -156,16 +156,6 @@
 \resumeItemListEnd
 
 \resumeSubheading
-{Software Engineer Intern}{May 2025 -- Aug. 2025}
-{SJSU College of Engineering}{San Jose, CA}
-\resumeItemListStart
-\resumeItem{Architected a real-time Python and SQLite backend service for monitoring print jobs for over 2,000+ people.}
-\resumeItem{Ensured 99\% uptime for 500+ jobs by automating Pytest unit tests within GitHub Actions CI/CD pipelines.}
-\resumeItem{Reduced memory usage by 65\% via Docker consolidation to streamline deployment on a bare-metal Linux server.}
-\resumeItemListEnd
-
-
-\resumeSubheading
 {Software Developer}{Aug. 2024 -- Present}
 {Software and Computer Engineering Society (SCE)}{San Jose, CA}
 \resumeItemListStart
@@ -174,6 +164,14 @@
 \resumeItem{Maintained 99\% uptime for LED Leetcode leaderboard, increasing engagement with over 400+ problems solved.}
 \resumeItemListEnd
 
+\resumeSubheading
+{Software Engineer Intern}{May 2025 -- Aug. 2025}
+{SJSU College of Engineering}{San Jose, CA}
+\resumeItemListStart
+\resumeItem{Architected a real-time Python and SQLite backend service for monitoring print jobs for over 2,000+ people.}
+\resumeItem{Ensured 99\% uptime for 500+ jobs by automating Pytest unit tests within GitHub Actions CI/CD pipelines.}
+\resumeItem{Reduced memory usage by 65\% via Docker consolidation to streamline deployment on a bare-metal Linux server.}
+\resumeItemListEnd
 % \resumeSubheading
 % {Game Developer}{Aug. 2020 -- Aug. 2023}
 % {Roblox}{Remote}
@@ -209,16 +207,31 @@
 \section{Projects}
 \resumeSubHeadingListStart
 
+% \resumeProjectHeading
+% {\textbf{\href{https://github.com/epicgdog/sow-agent}{sow-agent}}  $|$ \emph{Python, AWS Bedrock, Datadog MCP, GitHub Actions, FastAPI}}{}
+% \resumeItemListStart
+% \resumeItem{Architected \textbf{reusable agent skills} on a modular multi-agent platform (AWS Bedrock), automating orchestration and cutting triage time by 65\%.}
+% \resumeItem{Developed a self-healing QA loop with Datadog MCP telemetry to auto-retry failures, improving agent workflow stability.}
+% \resumeItem{Integrated GitHub Actions CI/CD with gated tests and deploy checks, enabling traceable low-risk releases.}
+% \resumeItemListEnd
 \resumeProjectHeading
-{\textbf{\href{https://github.com/epicgdog/sow-agent}{sow-agent}}  $|$ \emph{Python, AWS Bedrock, Datadog MCP, GitHub Actions, FastAPI}}{}
+{\textbf{\href{https://github.com/epicgdog/agentclipz}{AgentClipz}}  $|$ \emph{Python, FFmpeg, Streamlink, Reka AI, Modulate API, Claude Code, Context7 MCP}}{}
 \resumeItemListStart
-\resumeItem{Architected \textbf{reusable agent skills} on a modular multi-agent platform (AWS Bedrock), automating orchestration and cutting triage time by 65\%.}
-\resumeItem{Developed a self-healing QA loop with Datadog MCP telemetry to auto-retry failures, improving agent workflow stability.}
-\resumeItem{Integrated GitHub Actions CI/CD with gated tests and deploy checks, enabling traceable low-risk releases.}
+\resumeItem{Awarded \textbf{Best Use of Modulate} out of 80+ teams for a live-stream clip generator using sentiment analysis.}
+\resumeItem{Processed 4-hour live streams via Streamlink and FFmpeg, using chat spikes and Modulate to audit clips.}
+\resumeItem{Published Reka AI-captioned Reels to Instagram 2 minutes after the event occurred, securing 1.5K views.}
+\resumeItemListEnd
+\resumeProjectHeading
+{\textbf{\href{https://github.com/Nayab-23/SeedHackathon}{StudyGuard}} $|$ \emph{Python, FastAPI, OpenCV, OpenAI Whisper, NVIDIA Jetson Orin Nano}}{}
+\resumeItemListStart
+\resumeItem{Awarded \textbf{2nd Overall} (15 teams) for a study robot that reloads dynamic DNS to block distractions.}
+\resumeItem{Deployed OpenCV on a Jetson Orin Nano to classify current study states, streaming data to a dashboard.}
+\resumeItem{Used a Brev-hosted Llama VL model and Whisper STT to unblock study sites on demand after analysis.}
+\resumeItem{Created a SQLite dashboard with human-in-the-loop controls to validate or override agent DNS actions.}
 \resumeItemListEnd
 
 \resumeProjectHeading
-{\textbf{\href{https://github.com/epicgdog/schedule-ai}{Schedule-AI}} \ $|$ \emph{Python, FastAPI, React, Turso SQLite, PlaywrightMCP, Groq}}{}
+{\textbf{\href{https://github.com/epicgdog/schedule-ai}{Schedule-AI}} \ $|$ \emph{Python, FastAPI, React, Turso SQLite, SQLAlchemy, PlaywrightMCP, Groq}}{}
 \resumeItemListStart
 \resumeItem{Engineered an automated degree planner, scraping 5.3K courses and 200 majors via Playwright and Groq LLMs.}
 \resumeItem{Integrated a RAG pipeline using LangChain, Groq, ChromaDB, and embedding models for data retrieval.}
@@ -227,19 +240,13 @@
 \resumeItemListEnd
 
 \resumeProjectHeading
-{\textbf{\href{https://github.com/Nayab-23/SeedHackathon}{StudyGuard}} $|$ \emph{Python, FastAPI, OpenCV, OpenAI Whisper, SQLAlchemy, NVIDIA Jetson Orin Nano}}{}
-\resumeItemListStart
-\resumeItem{Awarded \textbf{2nd Place} at the Seeed Embodied AI Hackathon with a dynamically changing DNS server with a Reachy Mini robot for supervision.}
-\resumeItem{Developed a reusable classification pipeline with OpenCV and GPT-4V classifying focus states every 10s and streams live video data to a FastAPI dashboard.}
-\resumeItem{Built a physical voice agent on the Reacy Mini with Whisper transcription and GPT-4o that triggers dnsmasq allowlist updates and drives Reachy Mini robot gestures.}
-\resumeItemListEnd
+       {\textbf{\href{https://github.com/adover06/liturgy.display}{Liturgy.Display}}  $|$ \emph{Python, FastAPI, WebSockets, TailwindCSS, VOSK Speech Recognition}}{}
+         \resumeItemListStart
+           \resumeItem{Live scripture display system using speech recognition to automate operation of slides with less than 50ms latency.}
+           \resumeItem{Improved transcription accuracy by 50\% by finetuning the AI model to recognize specialized liturgical vocabulary.}
+           \resumeItem{Developed a web interface using Python and WebSockets to a frontend Vite app with TailwindCSS for design.}
+   \resumeItemListEnd
 
-% \resumeProjectHeading
-% {\textbf{\href{https://github.com/epicgdog/agentclipz}{AgentClipz}}  $|$ \emph{Python, FFmpeg, Streamlink, Reka AI, Modulate API, Claude Code, Context7 MCP}}{}
-% \resumeItemListStart
-% \resumeItem{Awarded \textbf{Best Use of Modulate API} for engineering a live video-processing backend (Streamlink, FFmpeg) that uses AI sentiment analysis to eliminate manual VOD review.}
-% \resumeItem{Orchestrated an end-to-end publishing workflow with RekaAI and Instagram Graph API to post fully edited Reels in under 2 minutes.}
-% \resumeItemListEnd
 
 % \resumeProjectHeading
 %     {\textbf{\href{https://github.com/Javacadu/HotSpotHackDavis25}{HotSpot}} $|$ \emph{Next.js, React, Tailwind CSS, Mapbox GL JS, Google Gemini}}{}
