@@ -1,0 +1,276 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} and Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} and Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+	\textbf{\Huge \scshape Gerard Consuelo} \\ \vspace{1pt}
+	{San Jose, CA, 95112} $|$
+	\href{mailto:gcon.work@gmail.com}{\underline{gcon.work@gmail.com}} $|$
+	\href{https://linkedin.com/in/gerard-consuelo}{\underline{linkedin.com/in/gerard-consuelo}} $|$
+	\href{https://github.com/epicgdog}{\underline{github.com/epicgdog}}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+{San Jose State University}{San Jose, CA}
+{Bachelor of Science in Computer Science}{Graduation: Dec 2027}
+\resumeItemListStart
+\resumeItem{GPA: 3.93, 2x President's Scholar Award.}
+\resumeItem{Coursework: Data Structures and Algorithms, Operating Systems, Network Security.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+	\small{\item{
+	      \textbf{Languages}{: Python, Perl, Go, C, Java, SQL, LuaU, JavaScript, HTML/CSS} \\
+	      \textbf{Frameworks/Libraries}{: FastAPI, LangChain, RAG, OpenAI API, OpenCV, SQLAlchemy, React/Next.js} \\
+	      \textbf{Developer Tools}{: Linux/Unix, Git/Github, Claude Code, MCP, Docker, AWS Bedrock, Groq, DataDog} \\
+	      }}
+\end{itemize}
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Peer Mentor}{Aug. 2025 -- Present}
+{Peer Connections}{San Jose, CA}
+\resumeItemListStart
+  \resumeItem{Mentored Calculus I workshop providing students with academic strategies, increasing pass rate by 15\%.}
+  \resumeItem{Directed 5 academic workshops with a 95\%+ satisfaction score through effective presentational skills.}
+  \resumeItem{Facilitated 50+ mentoring/tutoring sessions across 7+ CS/MATH courses, improving problem-solving techniques.}
+\resumeItemListEnd
+
+\resumeSubheading
+{Software Engineer Intern}{May 2025 -- Aug. 2025}
+{SJSU College of Engineering}{San Jose, CA}
+\resumeItemListStart
+\resumeItem{Architected a real-time Python and SQLite backend service for monitoring print jobs for over 2,000+ people.}
+\resumeItem{Ensured 99\% uptime for 500+ jobs by automating Pytest unit tests within GitHub Actions CI/CD pipelines.}
+\resumeItem{Reduced memory usage by 65\% via Docker consolidation to streamline deployment on a bare-metal Linux server.}
+\resumeItemListEnd
+
+
+\resumeSubheading
+{Software Developer}{Aug. 2024 -- Present}
+{Software and Computer Engineering Society (SCE)}{San Jose, CA}
+\resumeItemListStart
+\resumeItem{Developed an inventory management system in Go and React used by 300+ members for snack availability.}
+\resumeItem{Implemented auto-generate of welcome images for a Discord Bot with Javascript for a 3000-member server.}
+\resumeItem{Maintained 99\% uptime for LED Leetcode leaderboard, increasing engagement with over 400+ problems solved.}
+\resumeItemListEnd
+
+% \resumeSubheading
+% {Game Developer}{Aug. 2020 -- Aug. 2023}
+% {Roblox}{Remote}
+% \resumeItemListStart
+% \resumeItem{Architected a NPC system in LuaU with shared pathfinding, going from 100 to 300+ agents under 15ms.}
+% \resumeItem{Achieved sub 4ms hit registration in a custom FPS system through raycasting and client side rendering.}
+% \resumeItem{Showcased problem-solving and communication by authoring 100+ DevForum posts with 10+ accepted solutions.}
+% \resumeItemListEnd
+
+% \resumeSubheading
+% {Lead Instructor}{Jul. 2025}
+% {theCoderSchool}{Folsom, CA}
+% \resumeItemListStart
+% \resumeItem{Fostered multi-functional collaboration with TAs and parents to successfully lead a 15-student camp.}
+% \resumeItem{Created a 5-game LuaU curriculum with slides now adopted as standard training material for future camps.}
+% \resumeItem{Raised daily quiz scores from 56\% to 84\% via relatable analogies and hosting a final game gallery walk.}
+% \resumeItemListEnd
+
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+\resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+{\textbf{\href{https://github.com/epicgdog/sow-agent}{sow-agent}}  $|$ \emph{Python, AWS Bedrock, Datadog MCP, GitHub Actions, FastAPI}}{}
+\resumeItemListStart
+\resumeItem{Architected \textbf{reusable agent skills} on a modular multi-agent platform (AWS Bedrock), automating orchestration and cutting triage time by 65\%.}
+\resumeItem{Developed a self-healing QA loop with Datadog MCP telemetry to auto-retry failures, improving agent workflow stability.}
+\resumeItem{Integrated GitHub Actions CI/CD with gated tests and deploy checks, enabling traceable low-risk releases.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{\href{https://github.com/epicgdog/schedule-ai}{Schedule-AI}} \ $|$ \emph{Python, FastAPI, React, Turso SQLite, PlaywrightMCP, Groq}}{}
+\resumeItemListStart
+\resumeItem{Engineered an automated degree planner, scraping 5.3K courses and 200 majors via Playwright and Groq LLMs.}
+\resumeItem{Integrated a RAG pipeline using LangChain, Groq, ChromaDB, and embedding models for data retrieval.}
+\resumeItem{Built a FastAPI and Turso SQLite backend to generate dynamic 4-year degree roadmaps using junction tables.}
+\resumeItem{Parsed user transcripts with Pandas to track degree progress, rendering React roadmaps via bioinformatics tools.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{\href{https://github.com/Nayab-23/SeedHackathon}{StudyGuard}} $|$ \emph{Python, FastAPI, OpenCV, OpenAI Whisper, SQLAlchemy, NVIDIA Jetson Orin Nano}}{}
+\resumeItemListStart
+\resumeItem{Awarded \textbf{2nd Place} at the Seeed Embodied AI Hackathon with a dynamically changing DNS server with a Reachy Mini robot for supervision.}
+\resumeItem{Developed a reusable classification pipeline with OpenCV and GPT-4V classifying focus states every 10s and streams live video data to a FastAPI dashboard.}
+\resumeItem{Built a physical voice agent on the Reacy Mini with Whisper transcription and GPT-4o that triggers dnsmasq allowlist updates and drives Reachy Mini robot gestures.}
+\resumeItemListEnd
+
+% \resumeProjectHeading
+% {\textbf{\href{https://github.com/epicgdog/agentclipz}{AgentClipz}}  $|$ \emph{Python, FFmpeg, Streamlink, Reka AI, Modulate API, Claude Code, Context7 MCP}}{}
+% \resumeItemListStart
+% \resumeItem{Awarded \textbf{Best Use of Modulate API} for engineering a live video-processing backend (Streamlink, FFmpeg) that uses AI sentiment analysis to eliminate manual VOD review.}
+% \resumeItem{Orchestrated an end-to-end publishing workflow with RekaAI and Instagram Graph API to post fully edited Reels in under 2 minutes.}
+% \resumeItemListEnd
+
+% \resumeProjectHeading
+%     {\textbf{\href{https://github.com/Javacadu/HotSpotHackDavis25}{HotSpot}} $|$ \emph{Next.js, React, Tailwind CSS, Mapbox GL JS, Google Gemini}}{}
+%     \resumeItemListStart
+%       \resumeItem{Real-time disaster relief platform to monitor California wildfires, automating resource updates every 2 minutes.}
+%       \resumeItem{Built a live geospatial application using Next.js to visualize wildfire activity, providing critical location-based insights.}
+%       \resumeItem{Automated curation of significant resources for demographics affected using Google Gemini and current Census Data.}
+%   \resumeItemListEnd
+
+%   \resumeProjectHeading
+%     {\textbf{\href{https://github.com/DanielYRoh/syllabus-scraper}{Syll.Ai}} $|$ \emph{Next.js, React, Tailwind CSS, Vercel, Supabase, FastAPI, ngrok, Google Gemini}}{}
+%       \resumeItemListStart
+%     \resumeItem{Platform transforming complex academic syllabi to simplified guides, improving document readability for students.}
+%     \resumeItem{Developed a full-stack application using Next.js and Supabase to provide a seamless user interface with cloud storage.}
+%     \resumeItem{Leveraged an AI-powered backend using FastAPI and Google Gemini to extract key information and generate new syllabi.}
+% \resumeItemListEnd
+
+
+
+% \resumeProjectHeading
+%     {\textbf{Schedule Builder AI} $|$ \emph{Next.js, Python (FastAPI), PostgreSQL, Pinecone, Celery, LangChain}}{}
+%       \resumeItemListStart
+%         \resumeItem{Hybrid Scheduling Engine combining an scheduling algorithm with a RAG-based AI agent for personalized class schedules.}
+%         \resumeItem{Architected an async data pipeline using Celery, hydrating a PostgreSQL database with real-time course data.}
+%         \resumeItem{Implemented a Vector Search system to index "Rate My Professor" reviews, utilizing a custom MCP server.}
+%         \resumeItem{Designed an Entity Resolution layer to normalize inconsistent data sources, ensuring 100\% data integrity.}
+% \resumeItemListEnd
+
+
+
+
+\resumeSubHeadingListEnd
+
+\end{document}
