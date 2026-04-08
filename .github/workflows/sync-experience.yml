@@ -1,0 +1,38 @@
+name: Sync Experience From Portfolio
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 16 * * 1'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout resume repo
+        uses: actions/checkout@v5
+
+      - name: Checkout portfolio repo
+        uses: actions/checkout@v5
+        with:
+          repository: epicgdog/epicgdog.github.io
+          path: portfolio
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Sync experience entries
+        run: python scripts/sync_experience.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "resume-sync-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add gerard_consuelo_resume.tex
+          git diff --cached --quiet || git commit -m "sync: append new experience entries"
+          git push

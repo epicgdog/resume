@@ -1,0 +1,330 @@
+\documentclass[10pt,landscape]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{tikz}
+\usepackage[nosf]{kpfonts}
+\usepackage[t1]{fontenc}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{listings} % For OS pseudocode/C snippets
+
+% OS-specific code styling
+\lstset{
+    basicstyle=\tiny\ttfamily,
+    breaklines=true,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    frame=single
+}
+
+% Adjust margins for maximum density
+\geometry{top=0.5cm,left=0.5cm,right=0.5cm,bottom=0.5cm}
+
+% Section Box Styling
+\newcommand{\osbox}[2]{%
+    \begin{center}
+        \begin{tikzpicture}
+            \node[draw=black, fill=blue!5, semi thick, rectangle, rounded corners, inner sep=8pt, text width=\linewidth-15pt, align=left] (box){%
+                {\bfseries \footnotesize \MakeUppercase{#1}} \\
+                \vspace{1pt}
+                \hrule
+                \vspace{3pt}
+                \scriptsize #2
+            };
+        \end{tikzpicture}
+    \end{center}
+    \vspace{-10pt}
+}
+
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=0pt}
+
+\begin{document}
+
+\begin{multicols*}{3}
+
+% --- SECTION: INTER-PROCESS COMMUNICATION (IPC) ---
+    \osbox{Inter-Process Communication (IPC)}{
+        \textbf{Fundamentals:} Exchange of data between processes via files, pipes, sockets, or signals.
+        \begin{itemize}
+            \item \textbf{Files:} Slowest (disk-based); requires locks to prevent simultaneous writes.
+            \item \textbf{Race Condition:} Occurs when the outcome depends on the execution/scheduling order.
+            \item \textbf{Context:} Controlled by the kernel. Kernel threads stay alive until shutdown.
+            \item \textbf{Reentrant:} Several processes can be in kernel mode simultaneously; uses local variables so functions can be interrupted and recalled.
+        \end{itemize}
+
+        \textbf{Pipes \& Redirection:}
+        \begin{itemize}
+            \item \textbf{Anonymous Pipes:} \texttt{int pipe(fds[2])}. \texttt{fds[0]} = read, \texttt{fds[1]} = write. One-way.
+            \item \textbf{Behavior:} Data sent in a queue. Children copy the file descriptor table on \texttt{fork()}. Close unused ends to send EOF.
+            \item \textbf{dup2(oldfd, newfd):} Closes \texttt{newfd} if open, then maps \texttt{oldfd} onto \texttt{newfd}. Used to redirect \texttt{stdout} (1) or \texttt{stdin} (0) to a pipe.
+            \item \textbf{FIFOs:} \texttt{mkfifo} creates a named pipe; bidirectional and persists on disk.
+        \end{itemize}
+
+        \textbf{Memory Mapping (mmap):}
+        \texttt{void *mmap(addr, len, prot, flags, fd, off);}
+        \begin{itemize}
+            \item Points disk data to memory spaces; lazy loaded by the kernel.
+            \item \textbf{Prot:} \texttt{PROT\_READ}, \texttt{PROT\_WRITE}, \texttt{PROT\_EXEC}.
+            \item \textbf{Flags:} \texttt{MAP\_SHARED} (updates visible to others) vs. \texttt{MAP\_PRIVATE}.
+            \item \textbf{IPC Setup:} Use \texttt{MAP\_SHARED | MAP\_ANONYMOUS} with \texttt{fd = -1}.
+            \item \textbf{Management:} \texttt{msync()} flushes to disk; \texttt{munmap()} deletes mapping.
+        \end{itemize}
+
+        \textbf{Sockets (Network IPC):}
+        \begin{itemize}
+            \item \textbf{Server:} \texttt{socket()} $\to$ \texttt{bind()} $\to$ \texttt{listen()} $\to$ \texttt{accept()}.
+            \item \textbf{Client:} \texttt{socket()} $\to$ \texttt{connect()}.
+            \item \textbf{Communication:} \texttt{read()} and \texttt{write()} are used once established.
+        \end{itemize}
+
+        \textbf{Synchronization \& Signals:}
+        \begin{itemize}
+            \item \textbf{Semaphores:} Integer state + wait queue. \texttt{down()} decreases (if $<0$, sleep); \texttt{up()} increases (if $>0$, wake process).
+            \item \textbf{Spin Lock:} Multiprocessor only; "spins" (loops) until the resource is unlocked.
+            \item \textbf{Signals:} Asynchronous (SIGINT) or Synchronous (Exceptions: div-by-0, page fault). Default actions: Terminate, Core Dump, Ignore, Suspend, or Resume.
+            \item \textbf{System V:} \texttt{shmget()} (Fastest/Shared Mem), \texttt{semget()}, \texttt{msgget()}.
+        \end{itemize}
+
+        \textbf{Input Handling:}
+        \begin{itemize}
+            \item \textbf{getline(\&lineptr, \&n, stream):} Reads a full line (including \texttt{\textbackslash n}). 
+            \item If \texttt{*lineptr} is NULL, it \texttt{mallocs} for you. You must \texttt{free()} it later. 
+            \item Returns number of chars read, or -1 on EOF/Failure.
+        \end{itemize}
+    }
+
+    % --- SECTION: SIGNALS & PROCESS STATES ---
+    \osbox{Signals \& Process States}{
+        \textbf{Signal Fundamentals:} Event notifications mediated by the kernel. 
+        \begin{itemize}
+            \item \textbf{Mechanism:} Kernel forces a process to yield and sends a signal to be handled by a default or user-defined handler.
+            \item \textbf{Storage:} Each process has a "pending signal" memory area. \texttt{do\_signal()} executes the kill, default, or \texttt{handle\_signal} action.
+            \item \textbf{Trap:} Any event causing a switch to kernel mode (e.g., system calls).
+            \item \textbf{Exception:} Unexpected event from inside CPU (e.g., divide by zero).
+            \item \textbf{Hardware Interrupt:} Event from outside CPU (e.g., keyboard).
+        \end{itemize}
+
+        \textbf{Common POSIX Signals:}
+        \begin{itemize}
+            \item \textbf{SIGHUP (1):} Terminal "hang up"; process terminal goes away.
+            \item \textbf{SIGINT (2):} Ctrl+C; interrupt/exit gracefully.
+            \item \textbf{SIGQUIT (3):} Ctrl+/; exit and core dump gracefully.
+            \item \textbf{SIGILL (4):} Illegal instruction.
+            \item \textbf{SIGFPE (8):} Floating point exception (divide by zero).
+            \item \textbf{SIGKILL (9):} Immediate kill; cannot be caught or ignored.
+            \item \textbf{SIGSEGV (11):} Segmentation fault; invalid memory access.
+            \item \textbf{SIGALRM (14):} Alarm clock signal.
+            \item \textbf{SIGTERM (15):} Default kill signal; allows for cleanup.
+            \item \textbf{SIGCHLD (20):} Child process has died or stopped.
+            \item \textbf{SIGTSTP (18):} Ctrl+Z; suspend process.
+            \item \textbf{SIGCONT (19):} Resume/continue a suspended process.
+            \item \textbf{SIGUSR1 / SIGUSR2:} User-defined; must define own handlers.
+        \end{itemize}
+
+        \textbf{Management \& Commands:}
+        \begin{itemize}
+            \item \textbf{kill -signal pid:} Sends specific signal; default is \texttt{SIGTERM}.
+            \item \textbf{killall -signal name:} Sends signal to all processes by name.
+            \item \textbf{fg:} Unpauses and brings job to foreground using Job ID.
+            \item \textbf{Ctrl+D:} This is \textbf{EOF}, not a signal.
+        \end{itemize}
+
+        \textbf{Signal Handling (sigaction):}
+        \begin{lstlisting}[language=C]
+        #include <signal.h>
+        struct sigaction sAction;
+        sAction.sa_handler = myHandler; 
+        sigemptyset(&sAction.sa_mask); // Initialize mask
+        sAction.sa_flags = 0;
+        sigaction(SIGINT, &sAction, NULL); // Install handler
+        \end{lstlisting}
+
+        \textbf{Process State Transitions:}
+        \begin{itemize}
+            \item \textbf{Running $\to$ Ready:} Descheduled by the OS.
+            \item \textbf{Ready $\to$ Running:} Scheduled to execute.
+            \item \textbf{Running $\to$ Blocked:} I/O initiated; process must wait.
+            \item \textbf{Blocked $\to$ Ready:} I/O completed; process can resume.
+        \end{itemize}
+        \textbf{Jobs:} Processes assigned to a Group ID (\texttt{pgid}) for signal distribution.
+    }
+
+    % --- SECTION: SCHEDULING & PROCESS STATES ---
+    \osbox{CPU Scheduling \& Process States}{
+        \textbf{Process States \& Codes (ps output):}
+        \begin{itemize}
+            \item \textbf{R:} Running or Runnable (on run queue).
+            \item \textbf{D:} Uninterruptible sleep (usually waiting for I/O).
+            \item \textbf{S:} Interruptible sleep (waiting for an event to complete).
+            \item \textbf{T:} Stopped by job control signal or debugger tracing.
+            \item \textbf{Z:} Defunct ("Zombie"); terminated but not reaped by parent.
+            \item \textbf{I:} Idle kernel thread.
+        \end{itemize}
+        \textbf{Additional Modifiers:} \textbf{<} (high-priority), \textbf{N} (low-priority/nice), \textbf{L} (pages locked in memory), \textbf{s} (session leader), \textbf{l} (multi-threaded), \textbf{+} (foreground process group).
+
+        \textbf{Scheduling Metrics:}
+        \begin{itemize}
+            \item \textbf{Turnaround Time:} $CompletionTime - ArrivalTime$.
+            \item \textbf{Response Time:} $StartTime - ArrivalTime$.
+            \item \textbf{Throughput:} Number of processes completed per time unit.
+            \item \textbf{Utilization:} % of time CPU is doing work vs. sitting idle.
+        \end{itemize}
+
+        \textbf{Scheduling Algorithms:}
+        \begin{itemize}
+            \item \textbf{FIFO (First-In, First-Out):} Simple queue. Subject to the "convoy effect" where short jobs wait for long jobs ahead of them.
+            \item \textbf{SJF (Shortest Job First):} Non-preemptive. Runs the shortest job in the queue. Optimal only if all jobs arrive at the same time and runtimes are known.
+            \item \textbf{STCF (Shortest Time-to-Completion First):} Preemptive version of SJF. When a new job arrives, it preempts if its remaining time is shorter than the current job.
+            \item \textbf{Round Robin (RR):} Runs jobs for a \textbf{Time Slice} (scheduling quantum) then cycles. Optimizes response time/interactivity but is poor for turnaround time.
+        \end{itemize}
+
+        \textbf{Key Concepts:}
+        \begin{itemize}
+            \item \textbf{Workload:} Arrival time, start time, and duration.
+            \item \textbf{Preemption:} Temporarily interrupting a task (requires context switching) to run another.
+            \item \textbf{Context Switch:} Saving a process state into its \textbf{Process Control Block (PCB)} and loading another.
+            \item \textbf{I/O Incorporation:} When a process initiates I/O, it moves to the \textbf{Blocked} state. The scheduler should preempt it to keep the CPU utilized.
+            \item \textbf{Quantum Trade-off:} A longer time slice means less context switching overhead but worse response time; shorter slices improve interactivity but increase overhead.
+        \end{itemize}
+    }
+
+    % --- SECTION: MULTI-LEVEL FEEDBACK QUEUE (MLFQ) ---
+    \osbox{Multi-Level Feedback Queue (MLFQ)}{
+        \textbf{Mechanism:} Multiple distinct queues with different priority levels (e.g., Q0 to Q8). The scheduler always runs jobs from the highest priority queue.
+        \begin{itemize}
+            \item \textbf{Priority Rules:} If $P(A) > P(B)$, A runs. If $P(A) = P(B)$, they run in Round Robin (RR) or FIFO.
+            \item \textbf{Learning Behavior:} 
+                \begin{itemize}
+                    \item New jobs start at the \textbf{highest priority}.
+                    \item If a job uses its full time slice (CPU-bound), its priority is \textbf{reduced}.
+                    \item If it relinquishes the CPU before the slice is up (I/O-bound), it \textbf{stays} at the same level.
+                \end{itemize}
+            \item \textbf{Time Slices:} High priority levels use short slices ($<10$ms) for interactivity; low priority levels use longer slices ($\sim 100$ms).
+        \end{itemize}
+
+        \textbf{Problem Solving (Rules 4 \& 5):}
+        \begin{itemize}
+            \item \textbf{Starvation:} Long-running jobs may never run if I/O jobs dominate. \textit{Fix:} \textbf{Priority Boost}—move all jobs to the topmost queue after a period $S$.
+            \item \textbf{Gaming the Scheduler:} Processes yielding at 99\% to keep priority. \textit{Fix:} \textbf{Accounting}—once a job uses its total time allotment at a level, its priority is reduced regardless of yields.
+        \end{itemize}
+
+        \textbf{Niceness \& Priority:}
+        \begin{itemize}
+            \item \textbf{Nice Range:} $-20$ (Highest Priority) to $19$ (Lowest Priority). Default is $0$.
+            \item \textbf{Commands:} \texttt{nice -n [val] [cmd]} to start; \texttt{renice} for running processes. 
+            \item \textbf{Logic:} High priority = "less nice" (greedy). Lower priority = "more nice."
+        \end{itemize}
+
+        \textbf{System Resource Limits (rlimit):}
+        \texttt{getrlimit(RESOURCE, \&rl);} and \texttt{setrlimit(RESOURCE, \&rl);}
+        \begin{itemize}
+            \item \textbf{RLIMIT\_CPU:} Max CPU time in seconds.
+            \item \textbf{RLIMIT\_DATA:} Max memory for program data.
+            \item \textbf{RLIMIT\_NPROC:} Max number of child processes for the user.
+            \item \textbf{RLIMIT\_NOFILE:} Max number of open file descriptors.
+        \end{itemize}
+
+        \textbf{CPU Time Definitions:}
+        \begin{itemize}
+            \item \textbf{Wall Clock (Real):} Total elapsed time from start to finish.
+            \item \textbf{User CPU:} Time spent executing code in user mode.
+            \item \textbf{System CPU:} Time spent by kernel on behalf of the process (sys calls).
+        \end{itemize}
+
+        \textbf{Signal Execution Note:} When a pending signal is detected during a hardware interrupt (clock tick), the kernel installs a special code sequence on the \textbf{user stack} to execute the handler and restore CPU status before returning to user code.
+    }
+
+    % --- SECTION: ADDRESS SPACE & MEMORY ---
+    \osbox{Address Space \& Memory}{
+        \textbf{Memory Hierarchy:} 
+        \begin{itemize}
+            \item \textbf{L0 (Registers):} Fastest, highest cost per bit, lowest capacity.
+            \item \textbf{L1 (Cache/SRAM):} Fast, localized memory.
+            \item \textbf{L2 (Main Memory/DRAM):} Primary volatile storage.
+            \item \textbf{L3-L4 (Disk/Tape):} Secondary non-volatile storage (HDD, SSD, DVD). Larger, cheaper, but slower access.
+        \end{itemize}
+
+        \textbf{x86 Architecture \& Registers:}
+        \begin{itemize}
+            \item \textbf{EAX:} Accumulator; stores function return values.
+            \item \textbf{ECX:} Loop counter.
+            \item \textbf{ESI / EDI:} Index registers; used for function parameters.
+            \item \textbf{ESP:} Stack pointer (current top of stack).
+            \item \textbf{EBP:} Base pointer (start of the current stack frame).
+            \item \textbf{EIP / PC:} Instruction Pointer; address of the next instruction.
+            \item \textbf{Segment Registers:} CS (Code), DS (Data), SS (Stack). Hold entries to the Global Descriptor Table (GDT).
+            \item \textbf{Flags:} Carry, Overflow, Sign, and Zero flags for logic/math.
+        \end{itemize}
+
+        \textbf{Memory Virtualization:}
+        \begin{itemize}
+            \item \textbf{MMU:} Translates virtual addresses to physical addresses.
+            \item \textbf{Benefits:} Isolation (Process A cannot access Process B), Time-sharing, and Multiprogramming.
+            \item \textbf{Segmentation Fault:} Attempting to access an illegal or unallocated memory location.
+        \end{itemize}
+
+        \textbf{Program Memory Layout:}
+        \begin{itemize}
+            \item \textbf{Text:} Read-only program instructions (actual code).
+            \item \textbf{Data:} Global and static variables defined at compile time.
+            \item \textbf{Heap:} Dynamically allocated at runtime (via \texttt{malloc}). Grows upward.
+            \item \textbf{Stack:} Local variables, pointers, and return addresses. Grows downward.
+            \item \textbf{Kernel Space:} Reserved for system calls (via \texttt{0x80} interrupt) and the global virtual table.
+        \end{itemize}
+
+        \textbf{Heap Management (C):}
+        \begin{itemize}
+            \item \textbf{malloc(size):} Allocates bytes on heap; returns a pointer.
+            \item \textbf{calloc:} Allocates and initializes memory to zero.
+            \item \textbf{free(ptr):} Releases memory. Must be done to avoid leaks.
+            \item \textbf{Memory Leak:} Occurs if a pointer to malloc'ed memory is set to \texttt{NULL} before \texttt{free()} is called.
+        \end{itemize}
+
+        \textbf{Tools:} \texttt{top} (sort by memory), \texttt{pmap} (process memory map), \texttt{/proc/meminfo} (system-wide usage).
+    }
+
+    % --- SECTION: MEMORY API & POINTERS ---
+    \osbox{Memory API \& Pointers}{
+        \textbf{Standard Library Allocators (\texttt{<stdlib.h>}):}
+        \begin{itemize}
+            \item \textbf{malloc(size\_t size):} Allocates a block of \texttt{size} bytes on the heap. Returns a \texttt{void*} to the start of the block or \texttt{NULL} on failure.
+            \item \textbf{free(void* ptr):} Deallocates a memory region previously allocated by \texttt{malloc/calloc/realloc}. Does nothing if \texttt{ptr} is \texttt{NULL}.
+            \item \textbf{calloc(num, size):} Allocates memory for an array of \texttt{num} elements and \textbf{zeroes out} all bits before returning.
+            \item \textbf{realloc(ptr, size):} Resizes a previously allocated block. May return a new pointer; old data is preserved up to the minimum of the old and new sizes.
+        \end{itemize}
+
+        \textbf{Pointer Mechanics:}
+        \begin{itemize}
+            \item \textbf{Dereferencing:} \texttt{*ptr = n} sets the \textit{value} at the address; \texttt{ptr = n} changes the \textit{address} the pointer holds.
+            \item \textbf{Pointer Arithmetic:} Pointers are byte addresses. \texttt{ptr++} increases the address by \texttt{sizeof(type)}. An \texttt{int*} jumps by 4 bytes.
+            \item \textbf{Pass by Value:} C passes pointers by value (the address is copied). To modify the original pointer's address (e.g., in a \texttt{malloc} function), use a \textbf{double pointer} (\texttt{type**}).
+            \item \textbf{2D Matrices on Heap:} Stored in 1D. To access \texttt{M[i][j]}, use formula: \texttt{M[i * num\_cols + j]}.
+        \end{itemize}
+
+        \textbf{Strings: \texttt{char[]} vs \texttt{char*}}
+        \begin{itemize}
+            \item \textbf{\texttt{char a[] = "hello";}} Stored on the \textbf{stack}. Can be modified. \texttt{sizeof(a)} is 6 (includes \texttt{\textbackslash 0}).
+            \item \textbf{\texttt{char *p = "world";}} Points to a constant string literal in the \textbf{Data Segment}. Cannot be modified.
+        \end{itemize}
+
+        \textbf{Common Memory Pitfalls:}
+        \begin{itemize}
+            \item \textbf{Memory Leak:} Allocating memory and losing the pointer (setting it to \texttt{NULL}) before calling \texttt{free()}.
+            \item \textbf{Dangling Pointer:} Using a pointer after the memory it points to has been \texttt{free()}'d. \textit{Fix:} Set pointer to \texttt{NULL} after freeing.
+            \item \textbf{Double Free:} Calling \texttt{free()} twice on the same pointer. Leads to undefined behavior.
+            \item \textbf{Uninitialized Read:} Accessing \texttt{malloc}'ed memory before setting a value. Use \texttt{calloc} to avoid this.
+            \item \textbf{Buffer Overflow:} Not accounting for the \textbf{NULL terminator} (\texttt{\textbackslash 0}). When copying strings, allocate \texttt{strlen(src) + 1}.
+        \end{itemize}
+    }
+
+
+    
+    
+
+\end{multicols*}
+\end{document}
