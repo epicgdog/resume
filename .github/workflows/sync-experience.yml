@@ -1,6 +1,11 @@
-name: Sync Experience From Portfolio
+name: Sync Resume to Portfolio
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'gerard_consuelo_resume.tex'
+      - 'scripts/sync_experience.py'
   workflow_dispatch:
   schedule:
     - cron: '0 16 * * 1'
@@ -9,30 +14,62 @@ permissions:
   contents: write
 
 jobs:
-  sync:
+  sync-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      # ---- Checkout both repos ----
       - name: Checkout resume repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Checkout portfolio repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
         with:
           repository: epicgdog/epicgdog.github.io
+          token: ${{ secrets.RESUME_TOKEN }}
           path: portfolio
 
+      # ---- Compile LaTeX to PDF ----
+      - name: Compile resume PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: gerard_consuelo_resume.tex
+
+      - name: Copy PDF to portfolio assets
+        run: |
+          cp gerard_consuelo_resume.pdf portfolio/src/assets/gerard_consuelo_resume.pdf
+          echo "PDF copied to portfolio/src/assets/"
+
+      # ---- Run sync script ----
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Sync experience entries
+      - name: Sync experience & projects to portfolio
         run: python scripts/sync_experience.py
 
-      - name: Commit and push if changed
+      # ---- Rebuild portfolio site ----
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: portfolio/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: portfolio
+
+      - name: Build portfolio site
+        run: npm run build
+        working-directory: portfolio
+
+      # ---- Push changes to portfolio repo ----
+      - name: Commit and push to portfolio
+        working-directory: portfolio
         run: |
           git config user.name "resume-sync-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add gerard_consuelo_resume.tex
-          git diff --cached --quiet || git commit -m "sync: append new experience entries"
+          git add -A
+          git diff --cached --quiet || git commit -m "sync: update from resume repo"
           git push
